@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui/widgets/destination_widget.dart';
+import 'package:flutter_travel_ui/widgets/hotel_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int currentTab = 0;
 int selectedindex = 0;
 List<IconData> iconse = [
     FontAwesomeIcons.plane,
@@ -71,12 +73,48 @@ Widget _buidIcons(int index){
                   ).toList(), ),
                   SizedBox(height: 20.0),
 
-            DestinationWidget()
+            DestinationWidget(),
+            HotelWidget()
           ],
  
 
         ),
       ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentTab,
+        onTap: (value){
+          currentTab = value;
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              size: 30.0,
+            ),
+            title: SizedBox.shrink()
+
+          ),
+            BottomNavigationBarItem(
+            icon: Icon(
+              Icons.local_pizza,
+              size: 30.0,
+            ),
+            title: SizedBox.shrink()
+
+          ),
+            BottomNavigationBarItem(
+            icon: CircleAvatar(
+              radius: 15.0,
+              backgroundImage: AssetImage('assets/images/cat.jpg'),
+            ),
+            title: SizedBox.shrink()
+
+          )
+        ],
+        
+        
+        ),
 
     );
   }

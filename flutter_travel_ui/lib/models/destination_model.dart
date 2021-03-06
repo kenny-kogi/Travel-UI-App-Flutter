@@ -46,6 +46,7 @@ List<Activity> activities = [
 ];
 
 List<Destination> destinations = [
+  
   Destination(
     imageUrl: 'assets/images/venice.jpg',
     city: 'Venice',
